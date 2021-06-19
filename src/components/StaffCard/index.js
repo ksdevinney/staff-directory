@@ -1,4 +1,4 @@
-// to have biographical info
+// to have biographical info for selected employee
 import React from "react";
 
 function StaffCard(props) {
@@ -14,7 +14,7 @@ function StaffCard(props) {
               <strong>Name:</strong> {props.name}
             </li>
             <li>
-              <strong>Occupation:</strong> {props.occupation}
+              <strong>Occupation:</strong> {props.email}
             </li>
             <li>
               <strong>Location:</strong> {props.location}

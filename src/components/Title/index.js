@@ -1,8 +1,13 @@
 import React from "react";
-// import "./style.css";
+import "./style.css";
 
+// title at top of page
 function Title(props) {
-  return <h1 className="title">Employee Directory</h1>;
+    return (
+        <header>
+            <h1 className="title">Employee Directory</h1>;
+        </header>
+    );
 }
 
 export default Title;
