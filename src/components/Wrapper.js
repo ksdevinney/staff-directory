@@ -10,7 +10,7 @@ class Wrapper extends React.Component{
         employeeDatabase: []
     }
     componentDidMount= () => {
-        axios.get('https://randomuser.me/api/?results=15')
+        axios.get('https://randomuser.me/api/?results=20')
         .then(apiData => {
             console.log(apiData)
             let apiResults = apiData.data.results
