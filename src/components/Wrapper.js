@@ -30,7 +30,19 @@ class Wrapper extends React.Component{
     handleSearch = (event) => {
         event.preventDefault()
         let userSearch = event.target.value
-        this.setState({employeeSearch:userSearch})
+        if (userSearch === '' ) {
+            this.setState ({employeeData:this.state.employeeDatabase})
+        } else {
+        let employeeData = this.state.employeeData
+        let searchRecord = []
+        for (let i=0; i<employeeData.length; i++) {
+            if (employeeData[i].name.toLocaleLowerCase().indexOf(userSearch.toLocaleLowerCase()) > -1) {
+                searchRecord.push(employeeData[i])
+            }
+        } 
+        console.log(searchRecord)
+        this.setState({employeeSearch:userSearch, employeeData:searchRecord})
+        }
     }
     // holds things
     render(){
