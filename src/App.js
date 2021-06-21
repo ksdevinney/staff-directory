@@ -1,15 +1,16 @@
-// everything goes on this page
-import React, { Component } from "react";
-import './App.css';
-import Title from "./components/Title";
-import Wrapper from "./components/Wrapper";
+import Header from './components/Header';
+import Wrapper from './components/Wrapper';
+import StaffInfo from './components/StaffInfo';
+import StaffCard from './components/StaffCard';
+import employees from './employees.json';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello</h1>
+    <div className='container'>
+      <Header />
+      <Wrapper />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
