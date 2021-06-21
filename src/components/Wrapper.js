@@ -36,7 +36,7 @@ class Wrapper extends React.Component{
         let employeeData = this.state.employeeData
         let searchRecord = []
         for (let i=0; i<employeeData.length; i++) {
-            if (employeeData[i].name.toLocaleLowerCase().indexOf(userSearch.toLocaleLowerCase()) > -1) {
+            if ((employeeData[i].name.toLocaleLowerCase().indexOf(userSearch.toLocaleLowerCase()) > -1 )) {
                 searchRecord.push(employeeData[i])
             }
         } 
@@ -44,6 +44,8 @@ class Wrapper extends React.Component{
         this.setState({employeeSearch:userSearch, employeeData:searchRecord})
         }
     }
+    // sort goes here 
+    // sortfunction=(searchfield)=>{ // sort logic}
     // holds things
     render(){
     return(
