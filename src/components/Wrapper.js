@@ -21,7 +21,7 @@ class Wrapper extends React.Component{
             for (let i=0; i<apiResults.length; i++) {
                 // push to array in state
                 employeeData.push({ 
-                    name:apiResults[i].name.title + ' ' + apiResults[i].name.first + ' ' + apiResults[i].name.last,
+                    name:apiResults[i].name.first + ' ' + apiResults[i].name.last,
                     city:apiResults[i].location.city,
                     email:apiResults[i].email,
                     phone:apiResults[i].phone
@@ -50,45 +50,21 @@ class Wrapper extends React.Component{
         }
     }
     // sort goes here 
-    sortfunction = (column) => {
-        console.log(column);
-        if (column === 'name') {
-            const data = this.state.results;
-            this.sort((a, b) => {
-                if (a.name > b.name) {
-                    return 1;
-                } else {
-                    return 0;
-                }
-            });
-            this.setState({
-                results: data,
-            })
-        }
-    }
-    handleSort = (column) => {
-        if (this.state.order === 'asc') {
-            this.setState({
-                order:'dsc'
-            })
-        } else {
-            this.setState({
-                order:'asc'
-            })
-        }
-        const sortOrder = (a, b) => {
-            if (this.state.order === 'asc') {
-                if (a[column] === undefined) {
-                    return 1;
-                } else if (column === 'name') {
-                    return a[column].first.localeCompare(b[column]);
-                } else {
-                    return b[column] - a[column];
-                }
-
-                const sorted = this.state.employeeDatabase.sort(sortOrder);
+    handleSort = (event) => {
+        event.onClick()
+        // logic for sorting
+        this.state.employeeData.sort(function(a, b) {
+            let nameA = a.name.toUpperCase();
+            let nameB = b.name.toUpperCase();
+            if (nameA < nameB) {
+                return -1;
+            } else if (nameA < nameB) {
+                return 1;
+            } else {
+                return 0;
             }
-        }
+        })
+        this.setState({employeeData:this.asc})
     }
 
     // holds things
@@ -96,7 +72,7 @@ class Wrapper extends React.Component{
     return(
         <div className='StaffList'>
             <Search searchString={this.state.userSearch} handleSearch={this.handleSearch} />
-            <StaffInfo employeeData={this.state.employeeData} handleSort={this.orderName} />
+            <StaffInfo employeeData={this.state.employeeData} handleSort={this.handleSort} />
         </div>
     )
     }

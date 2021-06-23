@@ -5,7 +5,7 @@ function StaffInfo(props) {
     return (
         <div className='container'>
             {/* basic table */}
-            <table className="table table-hover table-bordered border-danger">
+            <table className="table table-hover table-striped table-bordered border-danger">
                 <thead>
                 <tr className="info">
                     <th data-column="name" data-order="asc"
