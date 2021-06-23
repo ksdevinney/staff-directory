@@ -10,7 +10,7 @@ function StaffInfo(props) {
                 <tr className="info">
                     <th data-column="name" data-order="asc"
                         onClick={ () => {
-                            props.ascending("name");
+                            console.log('click');
                         }}
                         >Name 🔻</th>
                     <th data-column="city">City</th>

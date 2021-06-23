@@ -4,7 +4,7 @@ import axios from 'axios';
 import Search from './Search';
 
 class Wrapper extends React.Component{
-    state= {
+    state = {
         employeeData: [],
         employeeSearch: '',
         employeeDatabase: [],
@@ -66,28 +66,37 @@ class Wrapper extends React.Component{
             })
         }
     }
-    // handleSort = (column) => {
-    //     return function(a, b) {
-    //         if (a[column] > b[column] || a.name[column] > b.name[column]) return 1;
-    //         else if (a[column] < b[column] || a.name[column] < b.name[column]) return -1;
-    //         return 0;
-    //     };
-    // };
+    handleSort = (column) => {
+        if (this.state.order === 'asc') {
+            this.setState({
+                order:'dsc'
+            })
+        } else {
+            this.setState({
+                order:'asc'
+            })
+        }
+        const sortOrder = (a, b) => {
+            if (this.state.order === 'asc') {
+                if (a[column] === undefined) {
+                    return 1;
+                } else if (column === 'name') {
+                    return a[column].first.localeCompare(b[column]);
+                } else {
+                    return b[column] - a[column];
+                }
 
-    // setAsc = (event) => {
-    //     this.setState({ order: 'asc', orderName: event.innerText.toLocaleLowerCase() })
-    // };
-
-    // setDsc = (event) => {
-    //     this.setState({ order: 'dsc', orderName: event.innerText.toLocaleLowerCase() })
-    // };
+                const sorted = this.state.employeeDatabase.sort(sortOrder);
+            }
+        }
+    }
 
     // holds things
     render(){
     return(
         <div className='StaffList'>
             <Search searchString={this.state.userSearch} handleSearch={this.handleSearch} />
-            <StaffInfo employeeData={this.state.employeeData} ascending={this.sortfunction} />
+            <StaffInfo employeeData={this.state.employeeData} handleSort={this.orderName} />
         </div>
     )
     }
