@@ -9,8 +9,8 @@ function StaffInfo(props) {
                 <thead>
                 <tr className="info">
                     <th data-column="name" data-order="asc"
-                        onClick={ () => {
-                            console.log('click');
+                        onClick={ (event) => {
+                            console.log(event.target);
                         }}
                         >Name 🔻</th>
                     <th data-column="city">City</th>

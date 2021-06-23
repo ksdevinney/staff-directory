@@ -2,6 +2,7 @@ import React from 'react';
 import StaffInfo from './StaffInfo';
 import axios from 'axios';
 import Search from './Search';
+// import SortButton from './SortButton';
 
 class Wrapper extends React.Component{
     state = {
@@ -53,9 +54,9 @@ class Wrapper extends React.Component{
     handleSort = (event) => {
         event.onClick()
         // logic for sorting
-        this.state.employeeData.sort(function(a, b) {
-            let nameA = a.name.toUpperCase();
-            let nameB = b.name.toUpperCase();
+        const employeesToSort = this.state.employeeData.sort(function(a, b) {
+            let nameA = a.name.toLowerCase();
+            let nameB = b.name.toLowerCase();
             if (nameA < nameB) {
                 return -1;
             } else if (nameA < nameB) {
@@ -72,7 +73,7 @@ class Wrapper extends React.Component{
     return(
         <div className='StaffList'>
             <Search searchString={this.state.userSearch} handleSearch={this.handleSearch} />
-            <StaffInfo employeeData={this.state.employeeData} handleSort={this.handleSort} />
+            <StaffInfo employeeData={this.state.employeeData} employeesToSort={this.handleSort} />
         </div>
     )
     }
