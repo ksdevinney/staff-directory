@@ -13,13 +13,18 @@ code {
 }
 
 header {
-  background-color: coral;
+  background-color: #7CBDD6;
   padding: 5rem;
   text-align: center;
   border-style: double;
+  border-color: #5B3970;
 }
 
-table {
+.table {
   margin: 5rem 10rem 5rem 0rem;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer {
+  font-size: smaller;
 }

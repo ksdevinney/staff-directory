@@ -14,7 +14,7 @@ class Wrapper extends React.Component{
     }
     // call random people from API
     componentDidMount= () => {
-        axios.get('https://randomuser.me/api/?results=20')
+        axios.get('https://randomuser.me/api/?results=50&nat=us')
         .then(apiData => {
             console.log(apiData)
             let apiResults = apiData.data.results
