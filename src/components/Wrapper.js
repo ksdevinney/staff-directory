@@ -2,7 +2,7 @@ import React from 'react';
 import StaffInfo from './StaffInfo';
 import axios from 'axios';
 import Search from './Search';
-// import SortButton from './SortButton';
+import SortButton from './SortButton';
 
 class Wrapper extends React.Component{
     state = {
@@ -53,6 +53,7 @@ class Wrapper extends React.Component{
     // sort goes here 
     handleSort = (event) => {
         event.onClick()
+        console.log('sort');
         // logic for sorting
         const employeesToSort = this.state.employeeData.sort(function(a, b) {
             let nameA = a.name.toLowerCase();
@@ -65,16 +66,25 @@ class Wrapper extends React.Component{
                 return 0;
             }
         })
-        this.setState({employeeData:this.asc})
-        // here's a change
+        this.setState({employeesToSort})
     }
 
     // holds things
     render(){
     return(
         <div className='StaffList'>
-            <Search searchString={this.state.userSearch} handleSearch={this.handleSearch} />
-            <StaffInfo employeeData={this.state.employeeData} employeesToSort={this.handleSort} />
+            <Search 
+                searchString={this.state.userSearch} 
+                handleSearch={this.handleSearch} 
+            />
+            <SortButton
+                onClick={this.handleSort}
+                employeesToSort={this.handleSort} 
+            />
+            <StaffInfo 
+                employeeData={this.state.employeeData} 
+                employeesToSort={this.handleSort} 
+            />
         </div>
     )
     }

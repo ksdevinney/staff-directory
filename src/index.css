@@ -5,7 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #e0d7ea;
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -23,6 +25,7 @@ header {
 .table {
   margin: 5rem 10rem 5rem 0rem;
   font-family: Arial, Helvetica, sans-serif;
+  background-color: white;
 }
 
 .footer {

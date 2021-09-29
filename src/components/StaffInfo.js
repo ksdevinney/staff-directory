@@ -6,14 +6,13 @@ function StaffInfo(props) {
         <div className='container'>
             {/* basic table */}
             <table className="table table-hover table-bordered border-info table-striped">
-            {/* border-danger */}
                 <thead>
                 <tr className="info">
                     <th data-column="name" data-order="asc"
                         onClick={ (event) => {
                             console.log(event.target);
-                        }}
-                        >Name 🔻</th>
+                        }}>
+                            Name</th>
                     <th data-column="city">City</th>
                     <th data-column="email">Email</th>
                     <th data-column="phone">Phone</th>
