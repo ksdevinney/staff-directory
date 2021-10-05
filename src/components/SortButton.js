@@ -1,8 +1,10 @@
 import React from 'react';
 
-function SortButton() {
+function SortButton(props) {
     return (
-        <button type="button" className="btn btn-danger">
+        <button type="button" className="btn btn-danger"
+            onClick={(event) => props.handleSort(event)}
+        >
             Sort
         </button>
     )

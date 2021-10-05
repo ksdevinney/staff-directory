@@ -8,7 +8,7 @@ function StaffInfo(props) {
             <table className="table table-hover table-bordered border-info table-striped">
                 <thead>
                 <tr className="info">
-                    <th data-column="name" data-order="asc"
+                    <th data-column="name"
                         onClick={ (event) => {
                             console.log(event.target);
                         }}>
