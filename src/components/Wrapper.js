@@ -51,17 +51,19 @@ class Wrapper extends React.Component{
     // sort goes here 
     handleSort = () => {
         let employeeData = this.state.employeeData;
-        // let sorted = false;
-        // logic for sort
+        let sorted = false;
+        // logic for ascending sort
         let employeesToSort = employeeData.sort(
             function(a, b) {
-            if (a.name < b.name) {
+            if (a.name < b.name && sorted) {
                 return -1;
-            } else if (a.name > b.name) {
+            } else if (a.name > b.name && !sorted) {
+                sorted = true;
                 return 1;
             } else {
                 return 0;
             }
+            // descending sort????
         }
         );
         this.setState({ employeeData: employeesToSort });
@@ -71,14 +73,14 @@ class Wrapper extends React.Component{
     render(){
     return(
         <div className='StaffList'>
-            <Search 
-                searchString={this.state.userSearch} 
-                handleSearch={this.handleSearch} 
-            />
             <SortButton
                 onClick={this.handleSort}
                 handleSort={this.handleSort}
                 employeesToSort={this.handleSort} 
+            /> 
+            <Search 
+                searchString={this.state.userSearch} 
+                handleSearch={this.handleSearch} 
             />
             <StaffInfo 
                 employeeData={this.state.employeeData} 

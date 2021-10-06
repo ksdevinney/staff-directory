@@ -1,11 +1,15 @@
-import React from 'react'
+import React from "react";
 
-function Search (props) {
-    return(
-        <div className='form-floating mb-3'>
-            <input onChange={(event) => props.handleSearch(event)} placeholder='Search' value={props.searchString} />
-        </div>
-    )
+function Search(props) {
+  return (
+      <span className="form-floating input-group-lg mb-3 search-bar">
+        <input
+          onChange={(event) => props.handleSearch(event)}
+          placeholder="Search"
+          value={props.searchString}
+        />
+      </span>
+  );
 }
 
-export default Search
+export default Search;

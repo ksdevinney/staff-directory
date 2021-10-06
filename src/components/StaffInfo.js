@@ -1,5 +1,5 @@
 import React from 'react';
-import StaffCard from './StaffCard'
+import StaffCard from './StaffCard';
 
 function StaffInfo(props) {
     return (

@@ -31,3 +31,13 @@ header {
 .footer {
   font-size: smaller;
 }
+
+.search-bar {
+  position: absolute;
+  right: 5rem;
+}
+
+/* .sort-button {
+  position: absolute;
+  left: 5rem;
+} */
