@@ -53,17 +53,17 @@ class Wrapper extends React.Component{
         let employeeData = this.state.employeeData;
         // logic for sort
         let employeesToSort = employeeData.sort(
-            // function(a, b) {
-            // // let nameA = a.name.toLowerCase();
-            // // let nameB = b.name.toLowerCase();
-            // if (a.name < b.name) {
-            //     return -1;
-            // } else if (a.name > b.name) {
-            //     return 1;
-            // } else {
-            //     return 0;
-            // }
-        // }
+            function(a, b) {
+            // let nameA = a.name.toLowerCase();
+            // let nameB = b.name.toLowerCase();
+            if (a.name < b.name) {
+                return -1;
+            } else if (a.name > b.name) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
         );
         this.setState({ employeeData: employeesToSort });
     }
