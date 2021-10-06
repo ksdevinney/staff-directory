@@ -15,15 +15,15 @@ class Wrapper extends React.Component{
     componentDidMount = () => {
         axios.get('https://randomuser.me/api/?results=50&nat=us')
         .then(apiData => {
-            let apiResults = apiData.data.results
-            let employeeData = []
-            for (let i=0; i<apiResults.length; i++) {
+            let apiResults = apiData.data.results;
+            let employeeData = [];
+            for (let i = 0; i < apiResults.length; i++) {
                 // push to array in state
                 employeeData.push({ 
-                    name:apiResults[i].name.first + ' ' + apiResults[i].name.last,
-                    city:apiResults[i].location.city,
-                    email:apiResults[i].email,
-                    phone:apiResults[i].phone
+                    name: apiResults[i].name.first + ' ' + apiResults[i].name.last,
+                    city: apiResults[i].location.city + ', ' + apiResults[i].location.state,
+                    email: apiResults[i].email,
+                    phone: apiResults[i].phone
                 })
             }
             this.setState({ employeeData: employeeData, employeeDatabase: employeeData })
@@ -36,7 +36,7 @@ class Wrapper extends React.Component{
         if (userSearch === '' ) {
             this.setState ({ employeeData: this.state.employeeDatabase })
         } else {
-        let employeeData = this.state.employeeData
+        let employeeData = this.state.employeeData;
         let searchRecord = []
         for (let i=0; i<employeeData.length; i++) {
             // make search non-case sensitive
@@ -50,22 +50,22 @@ class Wrapper extends React.Component{
     }
     // sort goes here 
     handleSort = () => {
-
-        // logic for sorting
-        const employeesToSort = this.employeeData.sort(
-            function(a, b) {
-            // let nameA = a.name.toLowerCase();
-            // let nameB = b.name.toLowerCase();
-            if (a.name < b.name) {
-                return -1;
-            } else if (a.name > b.name) {
-                return 1;
-            } else {
-                return 0;
-            }
-        }
-        )
-        this.setState({ employeeData: employeesToSort })
+        let employeeData = this.state.employeeData;
+        // logic for sort
+        let employeesToSort = employeeData.sort(
+            // function(a, b) {
+            // // let nameA = a.name.toLowerCase();
+            // // let nameB = b.name.toLowerCase();
+            // if (a.name < b.name) {
+            //     return -1;
+            // } else if (a.name > b.name) {
+            //     return 1;
+            // } else {
+            //     return 0;
+            // }
+        // }
+        );
+        this.setState({ employeeData: employeesToSort });
     }
 
     // holds things
@@ -77,7 +77,7 @@ class Wrapper extends React.Component{
                 handleSearch={this.handleSearch} 
             />
             <SortButton
-                onClick={console.log('sort')}
+                onClick={this.handleSort}
                 handleSort={this.handleSort}
                 employeesToSort={this.handleSort} 
             />

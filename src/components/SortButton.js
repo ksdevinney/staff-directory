@@ -4,6 +4,7 @@ function SortButton(props) {
     return (
         <button type="button" className="btn btn-danger"
             onClick={(event) => props.handleSort(event)}
+            value={props.sorted}
         >
             Sort
         </button>
